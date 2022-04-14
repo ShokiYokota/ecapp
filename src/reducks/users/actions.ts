@@ -1,5 +1,7 @@
+import { UserState } from "./types";
+
 export const SIGN_IN  = "SIGN_IN";  //ユーザーがサインインしたらStateを変更してね　Redusersでimportして使うためにexport
-export const signInAction = (userState) => { //userState=Object型でkeyにuserIdとuserNameを持っている
+export const signInAction = (userState:UserState) => { //userState=Object型でkeyにuserIdとuserNameを持っている
   return { 
     type: "SIGN_IN",
     payload: {   //payload=データの塊
