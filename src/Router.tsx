@@ -1,14 +1,15 @@
 import React from "react";
-import {Route,Switch} from "react-router";
-import {Login,Home} from "./templates";
+import {Route,Routes} from "react-router";
+import {Login,Home} from "./pages/index";
+import { BrowserRouter } from "react-router-dom";
 
-const Router = () => {
+export const Router = () => {
   return (
-    <Switch>
-      <Route exact path ="/login" component = {Login} />
-      <Route path ="/posts/:id" component = {Post} />
-      <Route exact path ="/(/)?" component = {Home} />
-    </Switch>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  </BrowserRouter>
   )
 }
-export default Router;
