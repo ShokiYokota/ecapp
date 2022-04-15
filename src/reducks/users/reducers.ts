@@ -1,15 +1,25 @@
-import * as Actions from './actions';
-import initialState from '../store/initialState';
+import { initialState } from '../store/initialState';
+import { UsersType } from './types';
 
-export const UsersReducer = (state = initialState.users,action)=>{
-  switch(action.type){
-    case Actions.SIGN_IN:
+// userのアクションを呼ぶReducer
+export const UsersReducer = (
+  state = initialState.users,
+  action: UsersType["action"]
+) => {
+  switch (action.type) {
+    case "SIGN_IN":
       return {
-        ...state,//初期の状態（initialSatas.users）を展開
-        ...action.payload //変更される状態(actionで渡される)を上書きしマージしてreturn
+        ...state,
+        ...action.payload
       }
-      
+    case "SIGN_OUT":
+      return {
+        ...state,
+        ...action.payload
+      }
     default:
-      return state
+    // console.error(`type is ${Object.values(ACTION_TYPE).join(' or ')}`);
+    // throw new Error(`type is ${Object.values(ACTION_TYPE).join(' or ')}`);
+    return state;
   }
 }

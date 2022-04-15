@@ -1,11 +1,9 @@
-import { UserState } from "../users/types";
+import { RootStateType } from "../users/types";
 
-const initialState : UserState = {
-    icon: "",
-    isSignedIn: false, //サインインしているかどうか　
-    userId: 0,
+export const initialState : RootStateType = {
+    users: {
+    isSignedIn: false,  //サインインしているかどうか　
+    userId: "",          //numberなら初期値０でいい？
     userName: ""
-  };
-
-
-export default initialState
+  }
+}
